@@ -51,12 +51,14 @@ function setClock() {
     let alarmAlreadyTriggered = false;
 
     function checkAlarm(currentHour, currentMinute) {
+        const currentSecond = new Date().getSeconds(); // Ajoute les secondes
     if (
     alarmArmed &&
     alarmHour !== null &&
     alarmMinute !== null &&
     currentHour === alarmHour &&
     currentMinute === alarmMinute &&
+    currentSecond === 0 && // Ne déclenche que à la toute première 
     !alarmAlreadyTriggered
     ) {
         alarmAlreadyTriggered = true;
