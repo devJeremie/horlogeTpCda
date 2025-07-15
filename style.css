@@ -1,0 +1,171 @@
+body {
+    background: #eaeaea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 30px 0;
+}
+
+.alarm-settings {
+    /* position: absolute; */
+    text-align: center;
+    bottom: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.alarm-settings input,
+.alarm-settings button {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.alarm-settings button {
+    background-color: coral;
+    color: white;
+    cursor: pointer;
+}
+.clock {
+    /* position: relative; */
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://i.postimg.cc/W1j0VXrB/clock.png);
+    background-size: cover;
+    border: 2px solid #091921;
+    border-radius: 50%;
+    box-shadow: 0 -10px 10px rgba(255, 255, 255, 0.05),
+        inset 0 -10px 10px rgba(255, 255, 255, 0.05),
+        0 10px 10px rgba(0, 0, 0, 0.03),
+        inset 0 10px 10px rgba(0, 0, 0, 0.03);
+}
+.clock:before {
+     content: "";
+     position: absolute;
+     width: 10px;
+     height: 10px;
+     background: #ffff;
+     border-radius: 50%;
+     z-index: 100000;
+ }
+
+ .clock .hour,
+ .clock .min,
+ .clock .sec {
+     position: absolute;
+ }
+
+ .clock .hour .hr {
+     width: 160px;
+     height: 160px;
+ }
+
+ .clock .min .mn {
+     width: 190px;
+     height: 190px;
+ }
+
+ .clock .sec .sc {
+     width: 230px;
+     height: 230px;
+ }
+
+ .hr,
+ .mn,
+ .sc {
+     display: flex;
+     justify-content: center;
+     /*align-items: center;
+  position: absolute;*/
+     border-radius: 50%;
+ }
+
+ .hr:before {
+     content: "";
+     position: absolute;
+     width: 8px;
+     height: 80px;
+     background: #ff105e;
+     z-index: 10;
+     border-radius: 6px 6px 0 0;
+ }
+
+ .mn:before {
+     content: "";
+     position: absolute;
+     width: 4px;
+     height: 95px;
+     background: #ffff;
+     z-index: 11;
+     border-radius: 6px 6px 0 0;
+ }
+
+ .sc:before {
+     content: "";
+     position: absolute;
+     width: 2px;
+     height: 130px;
+     background: coral;
+     z-index: 12;
+     border-radius: 6px 6px 0 0;
+ }
+
+ .clock .text {
+     color: grey;
+     font-family: 'Roboto', sans-serif;
+     font-size: 16px;
+     font-weight: 500;
+     text-transform: uppercase;
+     letter-spacing: 3px;
+     margin-top: 150px;
+     padding: 5px 10px;
+     border-radius: 4px;
+     box-shadow: 0 -2px 2px rgba(255, 255, 255, 0.05),
+        inset 0 -10px 10px rgba(255, 255, 255, 0.05),
+        0 2px 2px rgba(0, 0, 0, 0.03),
+        inset 0 10px 10px rgba(0, 0, 0, 0.03);
+ }
+/*---------Horloge digitale---------*/
+#digital-clock {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    background: #222;
+    width: 290px;
+    margin: 40px auto 16px auto;
+    padding: 32px 0;
+    border-radius: 16px;
+    font-size: 2.8rem;
+    text-align: center;
+    letter-spacing: 0.2em;
+    box-shadow: 0 2px 18px #17171755;
+}
+
+.alarm-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 8px;
+}
+
+.alarm-settings input,
+.alarm-settings button {
+    padding: 8px 12px;
+    margin: 2px 0;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.alarm-settings button {
+    background-color: coral;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

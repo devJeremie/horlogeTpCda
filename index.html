@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Horloge Vintage Bordeaux + Alarme</title>
+</head>
+<body>
+    <!--Horloge a aiguille-->
+    <section>
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="min">
+                <div class="mn" id="mn"></div>
+            </div>
+            <div class="sec">
+                <div class="sc" id="sc"></div>
+            </div>
+            <div class="text">AFPA</div>
+        </div>
+        <div class="alarm-settings">
+            <input type="time" id="alarmTime">
+            <input type="text" id="alarmMessage" placeholder="Message de l'alarme">
+            <button onclick="setAlarm()">Régler l'alarme</button>
+        </div>
+    </section>
+    <!--Horloge digitale-->
+    <section>
+        <div id="digital-clock"></div>
+        <div class="alarm-settings">
+            <input type="time" id="alarmTime">
+            <input type="text" id="alarmMessage" placeholder="Message de l'alarme">
+            <button onclick="setAlarm()">Régler l'alarme</button>
+        </div>
+        <audio id="alarmSound" src="https://cdn.pixabay.com/audio/2022/10/16/audio_12c1b4b3c6.mp3" preload="auto"></audio>
+    </section>
+<script src="main.js"></script>
+</body>
+
+</html>
