@@ -136,11 +136,13 @@ updateClock();
 // }
 
 // function checkAlarm(currentHour, currentMinute, currentSecond) {
+        // const currentSecond = new Date().getSeconds(); // Ajoute les secondes
 //     if (
 //         alarmArmed &&
 //         Number(currentHour) === alarmHour &&
 //         Number(currentMinute) === alarmMinute &&
 //         Number(currentSecond) === 0 &&
+        //    currentSecond === 0 && // Ne déclenche que à la toute première 
 //         !alarmAlreadyTriggered
 //     ) {
 //         alarmAlreadyTriggered = true;
