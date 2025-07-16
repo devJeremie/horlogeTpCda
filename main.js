@@ -136,3 +136,71 @@ setInterval(updateClock, 1000);
 // Appelle immédiatement updateClock au chargement de la page pour afficher l'heure sans attendre 1 seconde
 updateClock();
 
+
+//creer une fonction qui tri le tableau d'element
+exemple:([5, 3, 8, 1, 4]); [1,3,4,5,8]
+// max: retirer les element du tableau et les remettre dans l'ordre a l'exterieur et les remettre dans le tableau
+// sabrina : créer une fonction qui va regarder mon tableau et lui demander de les trier en ordre croissant
+// julen : prendre les element et les changer de place dans l'ordre
+// karim : deplacer les element afin qu'ils soient dans lordre
+// jeremie : creer un nouveau tableau et y mettre les element dans l'ordre croissant
+function triCroissant(tab) {
+    //slice() permet de copier le tableau d'origine pour eviter de le modifier directement
+    //sort() permet de trier les éléments du tableau
+    return tab.slice().sort(function(a, b ) {
+        return a - b; // Compare les éléments pour les trier en ordre croissant
+        // return b - a ; // Pour trier en ordre décroissant
+    });
+}
+let tableau = [5, 3, 8, 1, 4];
+let result = triCroissant(tableau);
+console.log(result); [1, 3, 4, 5, 8]
+
+
+[2, 5, 1, 4, 3].sort();
+//sort() compare chaque paire d'element  a et b
+//resultat de a -b
+// < 0            a < b         a arrive avant b 
+// = 0            a = b         a et b sont égaux
+// > 0            a > b         a arrive après b
+let tabTwo = [2, 5, 1, 4, 3];
+tabTwo.sort((a, b) => a - b);
+console.log(tabTwo); // [1, 2, 3, 4, 5]
+
+  // creer une boucle qui affiche les chiffre de 1 a 10 
+  // tout les chiffres inferieur ou = a 10 et les afficher
+
+  // Initialiser une variable compteur à 1
+  // tant que ma variable compteur est inférieure ou égale à 10
+  // affiche la valeur de la variable 
+  // incrementer la variable compteur de 1 a chaque tour 
+  // fini
+
+  for( let compteur = 1; compteur <= 10; compteur++) {
+      console.log(compteur); // Affiche le nombre actuel
+  }
+
+  // Creer un fonction qui va generer une "guirlande" en alternant des * et la lettre o, selon une longueur donnée.
+  // Exemple pour une longueur de 10 : "*o*o*o*o*o*o*o*o*o*"
+  // Pseudo code 
+  // initialiser une variable guirlande à une chaîne vide 
+  // Boucle for de 0 a 10 
+  // a chaque tour de la boucle :
+    // - si l'index est pair, ajouter un * à la guirlande
+    // - si l'index est impair, ajouter un o à la guirlande
+  // - retourner la guirlande
+
+  function genererGuirlande(longueur) {
+    let guirlande = "";
+    for (let i=0; i < longueur; i++) {
+        if (i % 2 ===0) {
+            guirlande += "*"; // Ajoute un * si l'index est pair
+            //guirlande + * = guirlande
+        } else {
+            guirlande += "o"; // Ajoute un o si l'index est impair
+        }
+    }
+    console.log(guirlande); // Affiche la guirlande générée
+}
+genererGuirlande(10); // Appelle la fonction avec une longueur de 10
+"o*o*o*o*o*"
