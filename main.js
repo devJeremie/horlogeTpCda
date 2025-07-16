@@ -192,12 +192,15 @@ console.log(tabTwo); // [1, 2, 3, 4, 5]
 
   function genererGuirlande(longueur) {
     let guirlande = "";
+    console.log(guirlande)
     for (let i=0; i < longueur; i++) {
         if (i % 2 ===0) {
             guirlande += "*"; // Ajoute un * si l'index est pair
             //guirlande + * = guirlande
+            console.log(guirlande)
         } else {
             guirlande += "o"; // Ajoute un o si l'index est impair
+            console.log(guirlande)
         }
     }
     console.log(guirlande); // Affiche la guirlande générée
