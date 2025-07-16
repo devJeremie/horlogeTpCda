@@ -84,57 +84,120 @@
 //     }
 // }
 /*--- HORLOGE DIGITALE ---*/
-// Horloge digitale
-// Fonction qui met à jour l'affichage de l'horloge
-// Récupère l'élément de l'horloge et du son de l'alarme depuis le HTML
-const clock = document.getElementById("digital-clock");
-const alarmSound = document.getElementById("alarmSound");
-// Variables pour stocker l'heure de l'alarme, le message texte, et un indicateur si elle a déjà sonné
-let alarmTime = "";
-let alarmMsg = "";
-let alarmTriggered = false;
-// Fonction pour mettre à jour l'heure affichée et déclencher l'alarme si nécessaire
+//PseudoCode
+//VARIABLES
+//Recuperer l'element html de l'horloge
+//Son de l'alarme
+//recuperer le bouton stop 
+//Message de l'alarme(alert)
+//l'etat de l'alarme (true,false)
+//l'heure de l'alarme
+
+//MISE A JOUR DE L'HEURE
+// Obenir l'heure actuelle 
+// formater l'heure sur deux chiffres
+// Afficher l'heure dans l'élément HTML
+// Mettre a jour l'horloge toutes les secondes
+//ALARME
+//Creer input pour heure de l'alarme
+//verifier si l'heure actuelle est égale à l'heure de l'alarme
+//si cest egal a l'heure actuelle ca sonne 
+
+// si l'heure actuelle est egale a l'heure de l'alarme et que les secondes sont égales à 00
+//et que l'alarme n'a pas déjà sonné
+//alors on definit l'etat sur true
+//joue le son et message de l'
+//si l'heure actuelle n'est pas égale à l'heure de l'alarme
+//on remet l'état de l'alarme à false pour pouvoir sonner à nouveau
+
+//Faire un bouton pour arreter l'alarme
+
+const clock = document.getElementById("digital-clock"); // Récupère l'élément de l'horloge
+const alarmSound = document.getElementById("alarmSound"); // Récupère l'élément du son de l'alarme
+const alarmButton = document.getElementById("stopAlarm"); // Bouton pour stopper l'alarme
+let alarmMess = ""; // Message de l'alarme
+let alarmTime = ""; // Heure de l'alarme
+let alarmTriggered = false; // Indicateur si l'alarme a déjà sonné
+
 function updateClock() {
     const now = new Date(); // Récupère la date et l'heure actuelle
-    // Formate les heures, minutes et secondes avec un zéro devant si nécessaire (ex. 09 au lieu de 9)
     const h = String(now.getHours()).padStart(2, "0");
     const m = String(now.getMinutes()).padStart(2, "0");
     const s = String(now.getSeconds()).padStart(2, "0");
-    // Affiche l'heure actuelle dans l'élément HTML
-    clock.textContent = `${h}:${m}:${s}`;
-    // Vérifie si l'heure actuelle correspond à celle de l'alarme ET si c'est le début d'une minute (secondes === "00")
+
+    clock.textContent = `${h}:${m}:${s}`; // Affiche l'heure actuelle dans l'élément HTML
+
+    //alarme condition
     if (`${h}:${m}` === alarmTime && s === "00" && !alarmTriggered) {
-        alarmTriggered = true; // Marque que l'alarme a été déclenchée (évite qu'elle sonne plusieurs fois dans la même minute)
+        alarmTriggered = true; // Marque que l'alarme a été déclenchée
         alarmSound.play(); // Joue le son de l'alarme
-        alert("🔔 Alarme : " + (alarmMsg || "C'est l'heure !")); // Affiche le message d'alarme personnalisé ou un message par défaut
+        alert("🔔 Alarme : " + (alarmMess || "C'est l'heure !")); // Affiche le message d'alarme ou un message par défaut
     }
-    // Si on est sorti de l'heure de l'alarme, on réarme l'alarme pour pouvoir sonner à nouveau la prochaine fois
-    if (`${h}:${m}` !== alarmTime) {
-        alarmTriggered = false;
+    if (`${h}:${m}` !== alarmTime){
+        alarmTriggered = false; // Réinitialise l'état de l'alarme si on n'est plus à l'heure de l'alarme
     }
 }
-// Fonction appelée lorsqu'on clique sur "Régler l'alarme"
-function setAlarm() {
-    const t = document.getElementById("alarmTime").value; // Récupère l'heure choisie dans le champ input de type "time"
-    alarmMsg = document.getElementById("alarmMessage").value; // Récupère le message tapé dans le champ de texte
-
-    if (!t) return alert("⏰ Choisissez une heure !"); // Avertit si aucune heure n'a été sélectionnée
-
-    alarmTime = t; // Enregistre l'heure de l'alarme
-    alarmTriggered = false; // Réinitialise l'état de déclenchement
-    alert(`✅ Alarme réglée à ${t}`); // Confirmation à l'utilisateur
-}
-// Fonction pour arrêter le son de l'alarme manuellement
 function stopAlarm() {
-    alarmSound.pause(); // Met en pause le son
+    alarmSound.pause(); // Met en pause le son de l'alarme
     alarmSound.currentTime = 0; // Remet le son au début pour un prochain déclenchement
-    alert("🔕 Alarme stoppée."); // Message de confirmation
+    alert("🔕 Alarme arretée."); // Affiche un message de confirmation
 }
-// Actualise l'horloge toutes les secondes (1000 millisecondes)
-setInterval(updateClock, 1000);
+setInterval(updateClock, 1000); // Met à jour l'horloge toutes les secondes
+updateClock(); // Appelle immédiatement updateClock pour afficher l'heure sans attendre 1 seconde
 
-// Appelle immédiatement updateClock au chargement de la page pour afficher l'heure sans attendre 1 seconde
-updateClock();
+
+
+// Horloge digitale
+// Fonction qui met à jour l'affichage de l'horloge
+// Récupère l'élément de l'horloge et du son de l'alarme depuis le HTML
+// const clock = document.getElementById("digital-clock");
+// const alarmSound = document.getElementById("alarmSound");
+// // Variables pour stocker l'heure de l'alarme, le message texte, et un indicateur si elle a déjà sonné
+// let alarmTime = "";
+// let alarmMsg = "";
+// let alarmTriggered = false;
+// // Fonction pour mettre à jour l'heure affichée et déclencher l'alarme si nécessaire
+// function updateClock() {
+//     const now = new Date(); // Récupère la date et l'heure actuelle
+//     // Formate les heures, minutes et secondes avec un zéro devant si nécessaire (ex. 09 au lieu de 9)
+//     const h = String(now.getHours()).padStart(2, "0");
+//     const m = String(now.getMinutes()).padStart(2, "0");
+//     const s = String(now.getSeconds()).padStart(2, "0");
+//     // Affiche l'heure actuelle dans l'élément HTML
+//     clock.textContent = `${h}:${m}:${s}`;
+//     // Vérifie si l'heure actuelle correspond à celle de l'alarme ET si c'est le début d'une minute (secondes === "00")
+//     if (`${h}:${m}` === alarmTime && s === "00" && !alarmTriggered) {
+//         alarmTriggered = true; // Marque que l'alarme a été déclenchée (évite qu'elle sonne plusieurs fois dans la même minute)
+//         alarmSound.play(); // Joue le son de l'alarme
+//         alert("🔔 Alarme : " + (alarmMsg || "C'est l'heure !")); // Affiche le message d'alarme personnalisé ou un message par défaut
+//     }
+//     // Si on est sorti de l'heure de l'alarme, on réarme l'alarme pour pouvoir sonner à nouveau la prochaine fois
+//     if (`${h}:${m}` !== alarmTime) {
+//         alarmTriggered = false;
+//     }
+// }
+// // Fonction appelée lorsqu'on clique sur "Régler l'alarme"
+// function setAlarm() {
+//     const t = document.getElementById("alarmTime").value; // Récupère l'heure choisie dans le champ input de type "time"
+//     alarmMsg = document.getElementById("alarmMessage").value; // Récupère le message tapé dans le champ de texte
+
+//     if (!t) return alert("⏰ Choisissez une heure !"); // Avertit si aucune heure n'a été sélectionnée
+
+//     alarmTime = t; // Enregistre l'heure de l'alarme
+//     alarmTriggered = false; // Réinitialise l'état de déclenchement
+//     alert(`✅ Alarme réglée à ${t}`); // Confirmation à l'utilisateur
+// }
+// // Fonction pour arrêter le son de l'alarme manuellement
+// function stopAlarm() {
+//     alarmSound.pause(); // Met en pause le son
+//     alarmSound.currentTime = 0; // Remet le son au début pour un prochain déclenchement
+//     alert("🔕 Alarme stoppée."); // Message de confirmation
+// }
+// // Actualise l'horloge toutes les secondes (1000 millisecondes)
+// setInterval(updateClock, 1000);
+
+// // Appelle immédiatement updateClock au chargement de la page pour afficher l'heure sans attendre 1 seconde
+// updateClock();
 
 
 //creer une fonction qui tri le tableau d'element
